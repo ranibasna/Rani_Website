@@ -1,0 +1,23 @@
+# Theme metadata
+name = "rbtheme"
+
+# Is theme light or dark?
+light = true
+
+# Primary
+primary = "#6ec6ff"
+
+# Menu
+menu_primary = "#FCA311"
+menu_text = "#FFFFFF"
+menu_text_active = "#118AB2"
+menu_title = "#118AB2"
+
+# Backgrounds
+background = "#F7F7F7"
+home_section_odd = "#F7F7F7"
+home_section_even = "#F7F7F7"
+
+# font = "rose"
+link = "#118AB2"
+link_hover = "#118AB2"
