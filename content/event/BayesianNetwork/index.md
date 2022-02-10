@@ -14,7 +14,7 @@ event:  Swedish Network for Register-Based Research meeting
 event_url: http://swe-reg.se/springmeeting2021/
 featured: false
 image:
-  caption: 
+  caption:
   focal_point: Right
 links:
 - icon: twitter
@@ -24,7 +24,8 @@ links:
 - icon: file-alt
   icon_pack: far
   name: Slides
-  url: http://swe-reg.se/presentations-from-morning-session/  
+  # url: http://swe-reg.se/presentations-from-morning-session/
+  url: https://ranibasna.github.io/Bayesian-Network-Application-to-SocioEconomic-status/#/
 - icon: github
   icon_pack: fab
   name: Code
@@ -35,7 +36,7 @@ projects:
 - internal-project
 publishDate: "2021-03-024T00:00:00Z"
 # slides: example
-summary: Bayesian Network application to airway data. 
+summary: Bayesian Network application to airway data.
 tags: [Bayesian Network, Modification Effect]
 title: Bayesian Network applications
 url_code: ""
@@ -43,4 +44,3 @@ url_pdf: ""
 #. url_slides: "http://swe-reg.se/presentations-from-morning-session/"
 url_video: ""
 ---
-

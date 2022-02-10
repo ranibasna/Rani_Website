@@ -45,34 +45,34 @@ library(dplyr)
 
 ```{r}
 # Generate toy data with categorical and numerical columns
-n   <- 100
-prb <- 0.5
-muk <- 1.5
-clusid <- rep(1:4, each = n)
-x1 <- sample(c("A","B"), 2*n, replace = TRUE, prob = c(prb, 1-prb))
-x1 <- c(x1, sample(c("A","B"), 2*n, replace = TRUE, prob = c(1-prb, prb)))
-x1 <- as.factor(x1)
-x2 <- sample(c("A","B"), 2*n, replace = TRUE, prob = c(prb, 1-prb))
-x2 <- c(x2, sample(c("A","B"), 2*n, replace = TRUE, prob = c(1-prb, prb)))
-x2 <- as.factor(x2)
-x3 <- c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnorm(n, mean = muk))
-x4 <- c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnorm(n, mean = muk))
-x <- data.frame(x1,x2,x3,x4)
+n   = 100
+prb = 0.5
+muk = 1.5
+clusid = rep(1:4, each = n)
+x1 = sample(c("A","B"), 2*n, replace = TRUE, prob = c(prb, 1-prb))
+x1 = c(x1, sample(c("A","B"), 2*n, replace = TRUE, prob = c(1-prb, prb)))
+x1 = as.factor(x1)
+x2 = sample(c("A","B"), 2*n, replace = TRUE, prob = c(prb, 1-prb))
+x2 = c(x2, sample(c("A","B"), 2*n, replace = TRUE, prob = c(1-prb, prb)))
+x2 = as.factor(x2)
+x3 = c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnorm(n, mean = muk))
+x4 = c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnorm(n, mean = muk))
+x = data.frame(x1,x2,x3,x4)
 summary(x)
 ```
 
 
 ```{r}
 # converting the numerical data using UFT_func
-x_converted_data <- UFT_func(x, Seed = 22)
+x_converted_data = UFT_func(x, Seed = 22)
 #head(x_converted_data)
 # bined with the rest of the data
-x_converted_data_all <- bined_converted_func(converted_data = x_converted_data, original_data = x)
+x_converted_data_all = bined_converted_func(converted_data = x_converted_data, original_data = x)
 head(x_converted_data_all)
 ```
 
 ```{r}
-x_converted_data_all <- x_converted_data_all %>% dplyr::mutate(id = row_number())
+x_converted_data_all = x_converted_data_all %>% dplyr::mutate(id = row_number())
 head(x_converted_data_all)
 ```
 
@@ -80,7 +80,7 @@ head(x_converted_data_all)
 ```{r plots}
 # plotiing
 # adding old non-numerical features
-x_converted_data_all$x1_old <- x$x1
+x_converted_data_all$x1_old = x$x1
 ggplot(x_converted_data_all, aes(x=id, y=x1, color=x1_old)) + geom_point()
 ```
 
@@ -94,37 +94,37 @@ ggplot(x_converted_data_all, aes(x=x1), color=x1_old) + geom_histogram(bins = 30
 ## to see clusters
 
 ```{r}
-n   <- 100
-prb <- 0.9 # we put the prb to 0.9 for clear clusters
-muk <- 1.5
-clusid <- rep(1:4, each = n)
-x1 <- sample(c("A","B"), 2*n, replace = TRUE, prob = c(prb, 1-prb))
-x1 <- c(x1, sample(c("A","B"), 2*n, replace = TRUE, prob = c(1-prb, prb)))
-x1 <- as.factor(x1)
-x2 <- sample(c("A","B"), 2*n, replace = TRUE, prob = c(prb, 1-prb))
-x2 <- c(x2, sample(c("A","B"), 2*n, replace = TRUE, prob = c(1-prb, prb)))
-x2 <- as.factor(x2)
-x3 <- c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnorm(n, mean = muk))
-x4 <- c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnorm(n, mean = muk))
-x <- data.frame(x1,x2,x3,x4)
+n   = 100
+prb = 0.9 # we put the prb to 0.9 for clear clusters
+muk = 1.5
+clusid = rep(1:4, each = n)
+x1 = sample(c("A","B"), 2*n, replace = TRUE, prob = c(prb, 1-prb))
+x1 = c(x1, sample(c("A","B"), 2*n, replace = TRUE, prob = c(1-prb, prb)))
+x1 = as.factor(x1)
+x2 = sample(c("A","B"), 2*n, replace = TRUE, prob = c(prb, 1-prb))
+x2 = c(x2, sample(c("A","B"), 2*n, replace = TRUE, prob = c(1-prb, prb)))
+x2 = as.factor(x2)
+x3 = c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnorm(n, mean = muk))
+x4 = c(rnorm(n, mean = -muk), rnorm(n, mean = muk), rnorm(n, mean = -muk), rnorm(n, mean = muk))
+x = data.frame(x1,x2,x3,x4)
 ```
 
 
 ```{r}
 # converting the numerical data using UFT_func
-x_converted_data <- UFT_func(x, Seed = 22)
+x_converted_data = UFT_func(x, Seed = 22)
 #head(x_converted_data)
 # bined with the rest of the data
-x_converted_data_all <- bined_converted_func(converted_data = x_converted_data, original_data = x)
+x_converted_data_all = bined_converted_func(converted_data = x_converted_data, original_data = x)
 head(x_converted_data_all)
 ```
 
 
 ```{r cluster_plots}
 # plotiing
-x_converted_data_all <- x_converted_data_all %>% mutate(id = row_number())
+x_converted_data_all = x_converted_data_all %>% mutate(id = row_number())
 # adding old non-numerical features
-x_converted_data_all$x1_old <- x$x1
+x_converted_data_all$x1_old = x$x1
 ggplot(x_converted_data_all, aes(x=id, y=x1, color=x1_old)) + geom_point()
 ```
 ![](Scatter_cluster.png)

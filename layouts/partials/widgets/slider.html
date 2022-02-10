@@ -23,14 +23,15 @@
     {{ if $item.overlay_img }}
       {{ $bg_img := resources.Get (printf "media/%s" $item.overlay_img) }}
       {{ if $bg_img }}
-        {{ $style_bg = printf "%sbackground-image: url('%s');" $style_bg $bg_img.Permalink }}
+        {{ $overlay_filter_string := "0" }}
+        {{ if $item.overlay_filter }}
+          {{ $overlay_filter_string = (string $item.overlay_filter) }}
+        {{ end }}
+        {{ $style_bg = printf "%sbackground-image: linear-gradient(rgba(0, 0, 0, %s), rgba(0, 0, 0, %s)), url('%s'); background-position: center; background-repeat: no-repeat; background-size: cover;" $style_bg $overlay_filter_string $overlay_filter_string $bg_img.Permalink }}
       {{ else }}
         {{ errorf "Couldn't find `%s` in the `assets/media/` folder - please add it." $item.overlay_img }}
       {{ end }}
-      {{ if $item.overlay_filter }}
-        {{ $style_bg = printf "%sfilter: brightness(%s);" $style_bg (string $item.overlay_filter) }}
-      {{ end }}
-   {{ end }}
+  {{ end }}
 
   <div class="wg-hero dark carousel-item{{if eq $index 0}} active{{end}}" style="{{$style_bg | safeCSS}}">
     <div class="container" style="text-align: {{$item.align | default "left"}};">
